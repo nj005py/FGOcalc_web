@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<title>FGOcalc</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--<script type='text/javascript' src="js/data.js"></script>-->
+	<link rel="stylesheet" href="data/css/jquery-labelauty.css">
+	<script src="./data/js/resource.js"></script>
+	<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<!-- <script src="./data/js/jquery-3.3.1.min.js"></script> -->
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.bootcss.com/popper.js/1.14.3/umd/popper.min.js"></script>
+	<!-- Our Custom CSS -->
+	<link rel="stylesheet" href="data/css/style3.css">
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="data/css/jquery.mCustomScrollbar.min.css">
+	<!-- jQuery Custom Scroller CDN -->
+	<script src="data/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<!-- <script src="data/js/jquery-1.8.3.min.js"></script> -->
+	<script src="data/js/jquery-labelauty.js"></script>
+	<style>
+		#hdr_top {
+			width: 100%;
+			position: fixed;
+			z-index: 100;
+			background: #FAFAFA;
+		}
+
+		#content {
+			position: relative;
+		}
+
+		.no {
+			-webkit-text-fill-color: #D58512;
+			/* text-fill-color: #D58512; */
+			-webkit-text-stroke: 1px black;
+			/* text-stroke: 1px black; */
+			font-size: 0.85em;
+		}
+
+		.num {
+			-webkit-text-fill-color: #FFFFFF;
+			/* text-fill-color: #FFFFFF; */
+			-webkit-text-stroke: 0.5px black;
+			/* text-stroke: 1px black; */
+			font-size: 0.8em;
+		}
+
+		.cardview {
+			position: relative;
+			width: 80px;
+			height: 160px;
+			/* text-align: center; */
+			/* border:1px solid #a1a1a1; */
+			/* border-radius:10px; */
+			/* display:inline-block */
+		}
+
+		.main {
+			display: inline-block;
+			list-style-type: none;
+			margin-bottom: 50px;
+			width: 100px;
+			height: 100px;
+		}
+
+		#servant_list {
+			position: relative;
+			/* top:170px; */
+			text-align: center;
+		}
+
+		#div_search_screen {
+			/* position:fixed; */
+			/* top:1%; */
+			/* z-index: 9999; */
+			/* background: linear-gradient(to bottom, blue, white); */
+			position: relative;
+			text-align: center;
+			top: 1em;
+			/* height: 50px; */
+		}
+
+		#sidebarCollapse {
+			display: inline-block;
+			vertical-align: top;
+			position: absolute;
+			left: 0;
+		}
+
+		.servant_ul {
+			/* width:80%; */
+			/* text-align: center; */
+			list-style: none;
+			/* letter-spacing: 0px; */
+			/* word-spacing: 0px; */
+			overflow: hidden;
+			/* padding-left: 0px; */
+			/* margin: 0 auto; */
+			/* position: relative; */
+			/* display: inline-block; */
+			margin: 0px;
+			padding: 0px;
+			/* font-size:0px; */
+		}
+
+		.servant_li {
+			width: 80px;
+			/* height: 150px; */
+			/* float: left; */
+			display: inline-block;
+			vertical-align: top;
+			/* vertical-align: bottom; */
+			/* line-width:10px; */
+			/* line-height:15px; */
+			/* padding-bottom:999px;
+  					margin-bottom:-999px; */
+			box-sizing: border-box;
+			border: 1px solid #a1a1a1;
+			border-radius: 10px;
+		}
+
+		.dowebok {
+			/* padding-left: 0; */
+			text-align: center;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.dowebok li {
+			display: inline-block;
+		}
+
+		.div_searchbar {
+			text-align: center;
+		}
+
+		#div_keyword {
+			box-sizing: border-box;
+			/* width: 90%; */
+			height: 40px;
+			/* padding-left: 10px; */
+			border-left: 4px double #DEDEDE;
+			border-bottom: 4px double #DEDEDE;
+			border-top: 4px double #DEDEDE;
+			border-right: 1px #FFFFFF;
+			/* margin: 0 0 0 5px!important; */
+			border-radius: 10px 0px 0px 10px;
+			display: inline-block;
+			vertical-align: top;
+
+		}
+
+		#div_search_button {
+			width: 40px;
+			height: 40px;
+			background: #2A8AE0;
+			color: #FFFFFF;
+			/* background-image: url(data/img/search.png);
+			background-repeat: no-repeat;
+			background-size: 50% 50%; */
+			/* -moz-background-size: 100% 100%; */
+			/* background-position: center; */
+			border-radius: 0px 10px 10px 0px;
+		}
+
+		#div_screen {
+			width: 100%;
+			text-align: center;
+		}
+
+		#div_screen_option {
+			width: 100%;
+			text-align: center;
+		}
+
+		#div_screen_button {
+			text-align: center;
+			position: relative;
+		}
+
+		#img_search {
+			width: 1em;
+			height: 1em;
+			position: relative;
+			top: 20%;
+			bottom: 20%;
+			left: 25%;
+			;
+			right: 10%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+
+		<!-- Sidebar Holder -->
+		<nav id="sidebar" class="mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" style="overflow: visible;">
+			<div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
+				<div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;"
+				 dir="ltr">
+					<div id="dismiss">
+						<i class="glyphicon glyphicon-arrow-left"></i>
+						<span>→_→</span>
+					</div>
+
+					<div class="sidebar-header">
+						<h3>FGOcalc</h3>
+						<h5>FGO计算器</h5>
+					</div>
+
+					<ul class="list-unstyled components">
+						<p>蓝魔使的渣渣菜单</p>
+						<li>
+							<a href="http://nj005py.gitee.io/fgocalc/">关于</a>
+						</li>
+						<li>
+							<a href="http://nj005py.gitee.io/fgocalc/">通知</a>
+						</li>
+						<li>
+							<a href="http://nj005py.gitee.io/fgocalc/">分享</a>
+						</li>
+						<li>
+							<a href="http://nj005py.gitee.io/fgocalc/">反馈</a>
+						</li>
+					</ul>
+
+					<ul class="list-unstyled CTAs">
+						<li>
+							<a href="http://nj005py.gitee.io/fgocalc/" " class="download ">捐赠</a>
+									</li>
+									<li>
+										<a href="http://nj005py.gitee.io/fgocalc/ "" class="article">不知道</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: none;">
+				<div class="mCSB_draggerContainer">
+					<div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px;">
+						<div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+					</div>
+					<div class="mCSB_draggerRail"></div>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Page Content Holder -->
+		<div id="content">
+
+			<!-- 搜索 筛选区域 -->
+			<header id="hdr_top">
+
+				<div id="div_search_screen">
+					<button type="button" id="sidebarCollapse" class="btn btn-light">←_←</button>
+					<!-- <div style="width: 40%;"></div> -->
+					<ul class="dowebok">
+						<li>
+							<input type="radio" name="radio" data-labelauty="搜索" checked="true" value="search" id="ipt_rb_search">
+						</li>
+						<li>
+							<input type="radio" name="radio" data-labelauty="筛选" value="screen" id="ipt_rb_screen">
+						</li>
+					</ul>
+				</div>
+
+				<!-- <br> -->
+
+				<!-- 搜索框 -->
+				<div id="div_searchbar" class="row">
+					<div class="col-1 col-lg-4"></div>
+					<input id="div_keyword" class="col-9 col-lg-4" type="search" placeholder="输入关键字查询" onkeydown="if(event.keyCode==13) {getReady(event)}">
+					<div id="div_search_button" class="button" onclick="getReady(event)">
+						<img id="img_search" src="data/img/search.png">
+					</div>
+					<div class="col-1 col-lg-4"></div>
+				</div>
+
+				<!-- 筛选区域 -->
+				<div id="div_screen" hidden="hidden">
+
+					<div id="div_screen_option" class="row">
+						<div class="col-1 col-lg-4"></div>
+						<!-- 按职阶筛选 -->
+						<select class="custom-select col-5 col-lg-2" id="slt_class">
+							<option selected value="All">All</option>
+							<option value="Saber">Saber</option>
+							<option value="Archer">Archer</option>
+							<option value="Lancer">Lancer</option>
+							<option value="Rider">Rider</option>
+							<option value="Caster">Caster</option>
+							<option value="Assassin">Assassin</option>
+							<option value="Berserker">Berserker</option>
+							<option value="Ruler">Ruler</option>
+							<option value="Shielder">Shielder</option>
+							<option value="Alterego">Alterego</option>
+							<option value="Avenger">Avenger</option>
+							<option value="MoonCancer">MoonCancer</option>
+							<option value="Foreigner">Foreigner</option>
+						</select>
+						&nbsp;
+						<!-- 按星筛选 -->
+						<select class="custom-select col-5 col-lg-2" id="slt_star">
+							<option selected value="6">不限</option>
+							<option value="1">1星</option>
+							<option value="2">2星</option>
+							<option value="3">3星</option>
+							<option value="4">4星</option>
+							<option value="5">5星</option>
+							<option value="0">无星</option>
+						</select>
+						<div class="col-1 col-lg-4"></div>
+					</div>
+					<!-- <br> -->
+					<div class="div_screen_button" class="row">
+						<!-- 筛选 -->
+						<button type="button" id="btn_screen" class="btn btn-primary" onclick="readyForScreen()">筛选</button>
+						<!-- 重置 -->
+						<button type="button" id="btn_clear" class="btn btn-primary" onclick="clearScreen()">清除筛选</button>
+					</div>
+				</div>
+
+			</header>
+
+			<br>
+
+			<!-- 列表展示区 -->
+			<div id="servant_list"></div>
+		</div>
+
+		<!-- <div class="overlay"></div> -->
+
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#sidebar").mCustomScrollbar({
+				theme: "minimal"
+			});
+
+			$('#dismiss, .overlay').on('click', function () {
+				$('#sidebar').removeClass('active');
+				$('.overlay').fadeOut();
+			});
+
+			$('#sidebarCollapse').on('click', function () {
+				$('#sidebar').addClass('active');
+				$('.overlay').fadeIn();
+				$('.collapse.in').toggleClass('in');
+				$('a[aria-expanded=true]').attr('aria-expanded', 'false');
+			});
+		});
+	</script>
+
+
+
+
+	<script>
+		$(function () {
+			$(':input').labelauty();
+		});
+	</script>
+
+	<!-- <div>
+					<form action="" method="get" style="text-align: center">
+							<input type="text" id="keyword" name="search" placeholder="请输入从者名称或昵称" onkeydown="if(event.keyCode==13) {getReady()}"/>
+							<span class="clear" id="cls" style="visibility: hidden;">X</span>
+							<button type="button" class="button" onclick="getReady()">搜索</button>
+					</form>
+			</div> -->
+
+	<!-- <script>
+		function autoHeight() {
+			var maxheight = 0;
+			// var maxHDiv = 0;
+			for (var i = 0; i < $(".servant_li").length; i++) {
+				if (maxheight <= $(".servant_li").eq(i).height()) {
+					maxheight = $(".servant_li").eq(i).height();
+					// maxHDiv = $(".cardview").eq(i).height()
+				}
+			}
+			console.log("maxHeight:" + maxheight);
+			$(".servant_li").css('height', parseInt(maxheight) + parseInt(maxheight / 2) + 'px');// + parseInt(maxHDiv) 
+		}
+	</script> -->
+
+	<script>
+		document.getElementById("div_keyword").addEventListener("keyup", function () {
+			if (this.value.length == 0) {
+				allServant();
+			}
+		});
+	</script>
+
+	<!-- <script type="text/javascript" language="javascript">
+				function OnTextChanged() {
+					if (event.keyCode == 13) {//判断是否为回车键，Event是window对象的一个属性，是全局的。
+						event.keyCode = 0;//屏蔽回车键
+						var keyword = document.getElementById("keyword").value;
+						document.getElementById("key").innerHTML = keyword;
+						event.returnValue = false;
+					}
+				}
+			</script> -->
+
+	<!-- 复制文本 -->
+	<script>
+		function copyText() {
+			var keyword = document.getElementById("div_keyword").value;
+		}
+	</script>
+
+	<!-- 切换搜索模式 -->
+	<script>
+		$(document).ready(function () {
+
+			$('input[type=radio][name=radio]').change(function () {
+				if (this.value == 'search') {
+					document.getElementById("div_searchbar").hidden = false;
+					document.getElementById("div_screen").hidden = true;
+					var height = parseInt($('#hdr_top').get(0).offsetHeight);
+					console.log("height:" + height);
+					document.getElementById("servant_list").style.top = height + "px";
+					allServant();
+				}
+				else if (this.value == 'screen') {
+					document.getElementById("div_searchbar").hidden = true;
+					document.getElementById("div_screen").hidden = false;
+					var height = parseInt($('#hdr_top').get(0).offsetHeight);
+					console.log("height:" + height);
+					document.getElementById("servant_list").style.top = height + "px";
+					allServant();
+				}
+			});
+		});
+	</script>
+
+	<!-- 重写一个数据库操作 -->
+	<script>
+
+		//定义数据库操作类
+		//原型方式
+		function DBmanager(DBname, DBversion) {
+			this.DBname = DBname;
+			this.DBversion = DBversion || 1;
+			this.currentDB = null; //当前数据库
+		}
+
+		//判断浏览器是否支持indexDB
+		DBmanager.prototype.checkBrower = function () {
+			if (!window.indexedDB) {
+				window.alert("这个浏览器不支持IndexedDB，换个浏览器吧。换chrome opera这类的。")
+			}
+		}
+
+		//打开（没有创建过则创建）数据库
+		DBmanager.prototype.openDB = function () {
+			//调用API打开数据库
+			var request = window.indexedDB.open(this.DBname, this.DBversion);
+			//打开数据库失败的回调
+			request.onerror = function (e) {
+				console.log(e.currentTarget.error.message);
+			}.bind(this);
+
+			//打开数据库成功的回调
+			request.onsuccess = function (e) {
+				this.currentDB = e.target.result;
+				console.log(this.currentDB.name + ' database is already opened!');
+			}.bind(this);
+
+			//数据库升级的回调,此回调在数据库版本变化时和数据库第一次创建时执行
+			request.onupgradeneeded = function (e) {
+				console.log('database version is already upgrade to ' + this.DBversion);
+				this.currentDB = e.target.result;
+				console.log("test");
+				//判断数据库版本号
+				if (e.oldVersion < this.DBversion) {
+					if (this.currentDB.objectStoreNames.contains('servants')) {
+						this.currentDB.deleteObjectStore("servants");
+					}
+					var store = this.currentDB.createObjectStore('servants', { keyPath: "id" });
+					//指定为主键自增模式
+					//db.createObjectStore('students',{autoIncrement: true});
+					store.createIndex('nameIndex', 'name', { unique: false });
+					store.createIndex('nicknameIndex', 'nickname', { unique: false });
+					// store.createIndex('ageIndex', 'age', {unique: false});
+					store.createIndex('keywordIndex', ['name', 'nickname'], { unique: false });
+					//星数
+					store.createIndex('starIndex', 'star', { unique: false });
+					//职阶
+					store.createIndex('classIndex', 'class_type', { unique: false });
+					//星数职阶
+					store.createIndex('starClassIndex', ['star', 'class_type'], { unique: false });
+					for (var i = 0; i < svts.length; i++) {
+						store.add(svts[i]);
+					}
+				}
+			}.bind(this);
+		}
+
+		//关闭数据库
+		DBmanager.prototype.closeDB = function () {
+			this.currentDB.close();
+			console.log(this.currentDB.name + ' database is already closed!');
+		}
+
+		//删除数据库
+		DBmanager.prototype.deleteDB = function () {
+			window.indexedDB.deleteDatabase(this.DBname);
+			console.log(this.DBname + ' database is already deleted!');
+		}
+
+		//根据storeName获取对应store的方法
+		DBmanager.prototype.getStoreByName = function (storeName) {
+			var transaction = this.currentDB.transaction(storeName, 'readwrite');
+			return transaction.objectStore(storeName);
+		}
+
+		//添加数据
+		DBmanager.prototype.addData = function (storeName, data) {
+			var store = this.getStoreByName(storeName);
+			var request = store.get(key);
+			request.onsuccess = function (e) {
+				var servant = e.target.result;
+				console.log('key' + key + ',name:' + servant.name);
+			}
+			// for (var i = 0; i < data.length; i++) {
+			// 	store.add(data[i]);
+			// }
+		}
+
+		//通过游标获取所有数据
+		DBmanager.prototype.fetchStoreByCurser = function (storeName) {
+			var store = this.getStoreByName(storeName);
+			var request = store.openCursor();
+			var array = [];
+			request.onsuccess = function (e) {
+				var cursor = e.target.result;
+				if (cursor) {
+					var servant = cursor.value;
+					// console.log('servant:' + servant.name);
+					//curson.contine()会使游标下移，直至没有数据则返回undefined
+					array.push(servant);
+					cursor.continue();
+				} else {
+					var result = '<div style="text-align:center;"><ul class="servant_ul">';
+					for (var i = 0; i < array.length; i++) {
+						result += '<li class="servant_li"><div class="cardview">'
+							+ '<h5 style="position: absolute;right:0px;top: 2px;">'
+							+ '<font class="no">No.</font>'
+							+ '<font class="num">'
+							+ array[i].id
+							+ '</font></h5>'
+							+ '<img src="data/img/image'
+							+ array[i].id
+							+ '.jpg" style="width:100%;border-radius: 10px 10px 0px 0px"/>'
+							+ array[i].name
+							+ '</div></li>';
+					}
+					result += "</ul></div>"
+					// document.write(result);
+					// document.body.innerHTML=result;
+					document.getElementById("servant_list").innerHTML = result;
+					// autoHeight();
+				}
+			}
+		}
+
+		//模糊搜索
+		DBmanager.prototype.searchByKeyword = function (keyword) {
+			var store = this.getStoreByName("servants");
+			var request = store.openCursor();
+			var array = [];
+
+			request.onsuccess = function (event) {
+				var cursor = event.target.result;
+				if (cursor) {
+					if (cursor.value.name.indexOf(keyword) !== -1 || cursor.value.nickname.indexOf(keyword) !== -1) {
+						var svt = cursor.value;
+						array.push(svt);
+					}
+					cursor.continue();
+				} else {
+					var result = '<div style="float: left;align:center;text-align:center;"><ul class="servant_ul">';
+					for (var i = 0; i < array.length; i++) {
+						result += '<li class="servant_li"><div class="cardview">'
+							+ '<h5 style="position: absolute;right:0px;top: 2px;">'
+							+ '<font class="no">No.</font>'
+							+ '<font class="num">'
+							+ array[i].id
+							+ '</font></h5>'
+							+ '<img src="data/img/image'
+							+ array[i].id
+							+ '.jpg" style="width:100%"/>'
+							+ array[i].name
+							+ '</div></li>';
+					}
+					result += "</ul></div>"
+					// document.write(result);
+					// document.body.innerHTML=result;
+					document.getElementById("servant_list").innerHTML = result;
+					// autoHeight();
+				}
+			}
+		}
+
+		//筛选
+		DBmanager.prototype.searchByScreen = function (star, class_type) {
+				var store = this.getStoreByName("servants");
+				var indexStore;
+				var request;
+				var ifSearch = true;
+				var array = [];
+				console.log('star ' + star + ' class_type ' + class_type);
+				//2个条件都存在
+				if (star !== '6' && class_type !== 'All') {
+					indexStore = store.index("starClassIndex");
+					request = indexStore.openCursor(IDBKeyRange.only([parseInt(star), class_type]));
+				} else if ((star === '6') && (class_type !== 'All')) {
+					//星数不限
+					indexStore = store.index("classIndex");
+					request = indexStore.openCursor(IDBKeyRange.only(class_type));
+				} else if ((star !== '6') && (class_type === 'All')) {
+					//职阶不限
+					indexStore = store.index("starIndex");
+					request = indexStore.openCursor(IDBKeyRange.only(parseInt(star)));
+				} else {
+					//都不限制 = 全部
+					allServant();
+					ifSearch = false;
+				}
+				if (ifSearch) {
+					request.onsuccess = function (event) {
+						var cursor = event.target.result;
+						if (cursor) {
+							var svt = cursor.value;
+							array.push(svt);
+							cursor.continue();
+						} else {
+							var result = '<div style="float: left;align:center;text-align:center;"><ul class="servant_ul">';
+							for (var i = 0; i < array.length; i++) {
+								result += '<li class="servant_li"><div class="cardview">'
+									+ '<h5 style="position: absolute;right:0px;top: 2px;">'
+									+ '<font class="no">No.</font>'
+									+ '<font class="num">'
+									+ array[i].id
+									+ '</font></h5>'
+									+ '<img src="data/img/image'
+									+ array[i].id
+									+ '.jpg" style="width:100%"/>'
+									+ array[i].name
+									+ '</div></li>';
+							}
+							result += "</ul></div>"
+							// document.write(result);
+							// document.body.innerHTML=result;
+							document.getElementById("servant_list").innerHTML = result;
+							// autoHeight();
+						}
+					}
+				}
+			}
+		//使用
+
+		//准备搜索，允许在输入框点enter键，点search键
+		function getReady(event) {
+			if (event.keyCode == 13) {//判断是否为回车键，Event是window对象的一个属性，是全局的。
+				event.keyCode = 0;//屏蔽回车键
+				search();
+				event.returnValue = false;
+			} else {
+				search();
+			}
+		}
+
+		function search() {
+			var keyword = document.getElementById("div_keyword").value;
+			var db = new DBmanager('fgocalc', db_version);
+			db.openDB();
+			setTimeout(function () {
+				if (keyword.length == 0) {
+					db.fetchStoreByCurser("servants");
+				} else {
+					console.log('search');
+					db.searchByKeyword(keyword);
+				}
+				db.closeDB();
+			}, 500);
+		}
+
+		function readyForScreen(){
+			var star = $("#slt_star").val();
+			var class_type = $("#slt_class").val();
+			var db = new DBmanager('fgocalc', db_version);
+			db.openDB();
+			setTimeout(function () {
+				db.searchByScreen(star,class_type);
+				db.closeDB();
+			}, 500);
+		}
+
+		//显示全部从者
+		function allServant() {
+			var db = new DBmanager('fgocalc', db_version);
+			db.openDB();
+			setTimeout(function () {
+				db.fetchStoreByCurser("servants");
+				db.closeDB();
+			}, 500);
+		}
+
+		window.onload = function () {
+			var height = parseInt($('#hdr_top').get(0).offsetHeight);
+			console.log("height:" + height);
+			document.getElementById("servant_list").style.top = height + "px";
+			var db = new DBmanager('fgocalc', db_version);
+			if (!window.indexedDB) {
+				// window.alert("这个浏览器不支持IndexedDB，换个浏览器吧。换chrome opera这类的。")
+				var tip = '<div class="alert alert-danger"><strong>警告</strong> 这个浏览器不支持IndexedDB，换个浏览器吧。换chrome opera这类的。</div>'
+				document.getElementById("servant_list").innerHTML = tip;
+			} else {
+				db.openDB();
+				setTimeout(function () {
+					//            db.getDataCountByMultiCondition('students','myIndex',['lisi',30]);
+					//            db.getDataBetweenTwoData('students','ageIndex',24,30,false,true);
+					//            db.getMultipleData('students', 'ageIndex', 26);
+					db.fetchStoreByCurser('servants');
+					//            db.getDataByIndex('students','nameIndex','zhangsan');
+					//            db.addData('students',datas);
+					//            db.getDataByKey('students',11);
+					// db.fetchStoreDataCount('servants', function (count) {
+					// 	console.log(count);
+					// });
+					db.closeDB();
+					//            db.deleteDB();
+				}, 500);
+			}
+		}
+
+	</script>
+
+	<!-- 筛选 -->
+	<script>
+			// function screen() {
+			// 	var star = $("#slt_star").val();
+			// 	var class_type = $("#slt_class").val();
+			// 	readyForScreen(star, class_type);
+			// }
+	
+			function clearScreen(){
+				$("#slt_star").val("6");
+				$("#slt_class").val("All");
+				allServant();
+			}
+		</script>
+
+</body>
+
+</html>

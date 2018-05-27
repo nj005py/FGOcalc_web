@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+			.no {
+				-webkit-text-fill-color: #D58512;
+				text-fill-color: #D58512;
+				-webkit-text-stroke: 1px black;
+				text-stroke: 1px black;
+			}
+			
+			.num {
+				-webkit-text-fill-color: #FFFFFF;
+				text-fill-color: #FFFFFF;
+				-webkit-text-stroke: 1px black;
+				text-stroke: 1px black;
+			}
+			
+			.cardview {
+				position: relative;
+				width: 80px;
+				height: 150px;
+				text-align: center;
+				border: 1px solid #a1a1a1;
+				border-radius: 10px;
+				float: left;
+			}
+			
+			.main {
+				display: inline-block;
+				list-style-type: none;
+				margin-bottom: 50px;
+				width: 100px;
+				height: 100px;
+			}
+			
+			ul {
+				width: 100%;
+				list-style: none;
+				letter-spacing: -1px;
+				word-spacing: -1px;
+				padding-left: 0px;
+				padding-right: 0px;
+				text-align: center;
+				align: center
+			}
+			
+			ul li {
+				width: 80px;
+				float: left;
+				line-width: 10px;
+				line-height: 20px;
+			}
+		</style>
+</head>
+<script src="../js/resource.js"></script>
+<script>
+    var dd = "123";
+</script>
+<script>
+        console.log(' database -------');
+        class DBmanager {
+            //数据库管理类的构造函数，包含两个构造参数，数据库名称和数据库版本,数据库版本如果不指定默认为1；
+            constructor(DBname, DBversion) {
+                this.DBname = DBname;
+                this.DBversion = DBversion || 1;
+                this.currentDB = null; //当前数据库
+                console.log(' database');
+            }
+    
+            //打开（没有创建过则创建）数据库
+            openDB() {
+                //调用API打开数据库
+                var request = window.indexedDB.open(this.DBname, this.DBversion);
+                //打开数据库失败的回调
+                request.onerror = function (e) {
+                    console.log(e.currentTarget.error.message);
+                }.bind(this);
+                //打开数据库成功的回调
+                request.onsuccess = function (e) {
+                    this.currentDB = e.target.result;
+                    console.log(this.currentDB.name + ' database is already opened!');
+                }.bind(this);
+                //数据库升级的回调,此回调在数据库版本变化时和数据库第一次创建时执行
+                request.onupgradeneeded = function (e) {
+                    console.log('database version is already upgrade to ' + this.DBversion);
+                    this.currentDB = e.target.result;
+                    if (!this.currentDB.objectStoreNames.contains('students')) {
+                        //指定一个键为主键
+                        var store = this.currentDB.createObjectStore('students', {keyPath: "id"});
+                        //指定为主键自增模式
+                        //db.createObjectStore('students',{autoIncrement: true});
+                        store.createIndex('nameIndex', 'name', {unique: false});
+                        store.createIndex('ageIndex', 'age', {unique: false});
+                        store.createIndex('myIndex', ['name', 'age'], {unique: false});
+                    }
+                }.bind(this);
+            }
+    
+            //关闭数据库
+            closeDB() {
+                this.currentDB.close();
+                console.log(this.currentDB.name + ' database is already closed!');
+            }
+    
+            //删除数据库
+            deleteDB() {
+                window.indexedDB.deleteDatabase(this.DBname);
+                console.log(this.DBname + ' database is already deleted!');
+            }
+    
+            //根据storeName获取对应store的方法
+            getStoreByName(storeName) {
+                var transaction = this.currentDB.transaction(storeName, 'readwrite');
+                return transaction.objectStore(storeName);
+            }
+    
+            //添加数据
+            addData(storeName, data) {
+                var store = this.getStoreByName(storeName);
+                for (var i = 0; i < data.length; i++) {
+                    store.add(data[i]);
+                }
+            }
+    
+            //根据键值修改数据
+            updateDataByKey(storeName, key, age) {
+                var store = this.getStoreByName(storeName);
+                var request = store.get(key);
+                request.onsuccess = function (e) {
+                    var student = e.target.result;
+                    student.age = age;
+                    store.put(student);
+                }
+            }
+    
+            //根据键值查询数据
+            getDataByKey(storeName, key) {
+                var store = this.getStoreByName(storeName);
+                var request = store.get(key);
+                request.onsuccess = function (e) {
+                    var student = e.target.result;
+                    console.log('key is ' + key + ',name:' + student.name + ',age:' + student.age);
+                }
+            }
+    
+            //根据索引查询数据
+            getDataByIndex(storeName, indexName, index) {
+                var store = this.getStoreByName(storeName);
+                var indexStore = store.index(indexName);
+                var request = indexStore.get(index);
+                request.onsuccess = function (e) {
+                    var student = e.target.result;
+                    console.log('index is ' + index + ',id:' + student.id + ',age:' + student.age);
+                }
+            }
+    
+            //通过游标获取所有数据
+            fetchStoreByCurser(storeName) {
+                var store = this.getStoreByName(storeName);
+                var request = store.openCursor();
+                request.onsuccess = function (e) {
+                    var cursor = e.target.result;
+                    if (cursor) {
+                        var currentStudent = cursor.value;
+                        console.log('currentStudent:' + currentStudent.name);
+                        //curson.contine()会使游标下移，直至没有数据则返回undefined
+                        cursor.continue();
+                    }
+                }
+            }
+    
+            //通过游标和index查询
+            getMultipleData(storeName, indexName, age) {
+                var store = this.getStoreByName(storeName);
+                var indexStore = store.index(indexName);
+                var request = indexStore.openCursor(IDBKeyRange.only(age));
+                request.onsuccess = function (e) {
+                    var cursor = e.target.result;
+                    if (cursor) {
+                        var student = cursor.value;
+                        console.log(student.name);
+                        cursor.continue();
+                    }
+                };
+            }
+    
+            //指定游标范围查询
+            getDataBetweenTwoData(storeName, indexName, start, end, isStartOpen, isEndOpen) {
+                var store = this.getStoreByName(storeName);
+                var indexStore = store.index(indexName);
+                //true是不包括，false是包括
+                var request = indexStore.openCursor(IDBKeyRange.bound(start, end, isStartOpen, isEndOpen));
+                request.onsuccess = function (e) {
+                    var cursor = e.target.result;
+                    if (cursor) {
+                        var student = cursor.value;
+                        console.log(student.name);
+                        cursor.continue();
+                    }
+                }
+            }
+    
+            //获取某个store中存储条目的总数
+            getStoreDataCount(storeName) {
+                var store = this.getStoreByName(storeName);
+                var req = store.count();
+                req.onsuccess = function (e) {
+                    console.log(e.target.result);
+                }
+            }
+    
+            //获取store中满足多个条件的条目的总数
+            getDataCountByMultiCondition(storeName, indexName, condition) {
+                var store = this.getStoreByName(storeName)
+                var indexStore = store.index(indexName);
+                var request = indexStore.openCursor(IDBKeyRange.only(condition));
+                request.onsuccess = function (e) {
+                    var cursor = e.target.result;
+                    if (cursor) {
+                        var student = cursor.value;
+                        console.log(student.id);
+                        cursor.continue();
+                    }
+                }
+            }
+    
+            //获取某个store中存储条目的总数
+            fetchStoreDataCount(storeName, callback) {
+                var count = 0;
+                var store = this.getStoreByName(storeName);
+                var req = store.count();
+                req.onsuccess = function (e) {
+                    count = e.target.result;
+                    callback(count);
+                }
+            }
+    
+        }
+    
+        //名为students的ObjectStore
+        const datas = [{
+            id: 11,
+            name: "zhangsan",
+            age: 24
+        }, {
+            id: 12,
+            name: "lisi",
+            age: 30
+        }, {
+            id: 13,
+            name: "wangwu",
+            age: 26
+        }, {
+            id: 14,
+            name: "zhaoliu",
+            age: 26
+        },];
+    
+        console.log(' database +++++');
+    
+        window.onload = function () {
+            console.log(' database +++++' + dd);
+            var db = new DBmanager('fgocalc', 5);
+            db.openDB();
+            setTimeout(function () {
+    //            db.getDataCountByMultiCondition('students','myIndex',['lisi',30]);
+    //            db.getDataBetweenTwoData('students','ageIndex',24,30,false,true);
+    //            db.getMultipleData('students', 'ageIndex', 26);
+    //            db.fetchStoreByCurser('students');
+    //            db.getDataByIndex('students','nameIndex','zhangsan');
+    //            db.addData('students',datas);
+    //            db.getDataByKey('students',11);
+                db.fetchStoreDataCount('students', function (count) {
+                    console.log(count);
+                });
+                db.closeDB();
+    //            db.deleteDB();
+            }, 500);
+        }
+    </script>
+<body>
+        
+
+
+dddddddddd
+</body>
+</html>
