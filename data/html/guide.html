@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>FGOcalc引导页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="./download_page/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+    <!-- <script src="./download_page/jquery-1.11.1.min.js"></script>
+    <script src="./download_page/bootstrap.min.js"></script> -->
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.14.3/umd/popper.min.js"></script>
+    <style>
+        .bs-calltoaction {
+            position: relative;
+            width: auto;
+            padding: 15px 25px;
+            border: 1px solid black;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .bs-calltoaction>.row {
+            display: table;
+            width: calc(100% + 30px);
+        }
+
+        .bs-calltoaction>.row>[class^="col-"],
+        .bs-calltoaction>.row>[class*=" col-"] {
+            float: none;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .cta-contents {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .cta-title {
+            margin: 0 auto 15px;
+            padding: 0;
+        }
+
+        .cta-desc {
+            padding: 0;
+        }
+
+        .cta-desc p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-button {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        @media (max-width: 991px) {
+            .bs-calltoaction>.row {
+                display: block;
+                width: auto;
+            }
+
+            .bs-calltoaction>.row>[class^="col-"],
+            .bs-calltoaction>.row>[class*=" col-"] {
+                float: none;
+                display: block;
+                vertical-align: middle;
+                position: relative;
+            }
+
+            .cta-contents {
+                text-align: center;
+            }
+        }
+
+
+
+        .bs-calltoaction.bs-calltoaction-default {
+            color: #333;
+            background-color: #fff;
+            border-color: #ccc;
+        }
+
+        .bs-calltoaction.bs-calltoaction-primary {
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #2e6da4;
+        }
+
+        .bs-calltoaction.bs-calltoaction-info {
+            color: #fff;
+            background-color: #5bc0de;
+            border-color: #46b8da;
+        }
+
+        .bs-calltoaction.bs-calltoaction-success {
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+        }
+
+        .bs-calltoaction.bs-calltoaction-warning {
+            color: #fff;
+            background-color: #f0ad4e;
+            border-color: #eea236;
+        }
+
+        .bs-calltoaction.bs-calltoaction-danger {
+            color: #fff;
+            background-color: #d9534f;
+            border-color: #d43f3a;
+        }
+
+        .bs-calltoaction.bs-calltoaction-purple {
+            color: #fff;
+            background-color: #2C2255;
+            border-color: #AF3874;
+        }
+
+        .bs-calltoaction.bs-calltoaction-primary .cta-button .btn,
+        .bs-calltoaction.bs-calltoaction-info .cta-button .btn,
+        .bs-calltoaction.bs-calltoaction-success .cta-button .btn,
+        .bs-calltoaction.bs-calltoaction-warning .cta-button .btn,
+        .bs-calltoaction.bs-calltoaction-danger .cta-button .btn,
+        .bs-calltoaction.bs-calltoaction-purple .cta-button .btn {
+            border-color: #fff;
+        }
+    </style>
+    <script type="text/javascript">
+        window.alert = function () { };
+        var defaultCSS = document.getElementById('bootstrap-css');
+        function changeCSS(css) {
+            if (css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="' + css + '" type="text/css" />');
+            else $('head > link').filter(':first').replaceWith(defaultCSS);
+        }
+        $(document).ready(function () {
+            var iframe_height = parseInt($('html').height());
+            //        window.parent.postMessage( iframe_height, 'fgocalc');
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-sm-12">
+
+            <div class="bs-calltoaction bs-calltoaction-danger">
+                <div class="row">
+                    <div class="col-md-9 cta-contents">
+                        <h1 class="cta-title">FGO计算器(FGOcalc)下载页</h1>
+                        <div class="cta-desc">
+                            <p>QQ群422969398</p>
+                            <p>最新版为v1.5.3.release,是1.5.3的正式版。</p>
+                            <p>数据库更新至208号齐格。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bs-calltoaction bs-calltoaction-primary">
+                <div class="row">
+                    <div class="col-md-9 cta-contents">
+                        <h1 class="cta-title">版本介绍</h1>
+                        <div class="cta-desc">
+                            <p>v1.5.3.release</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 cta-button">
+                        <a href="http://bbs.ngacn.cc/read.php?tid=13304364" class="btn btn-lg btn-block btn-primary">我要了解</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bs-calltoaction bs-calltoaction-info">
+                <div class="row">
+                    <div class="col-md-9 cta-contents">
+                        <h1 class="cta-title">从百度网盘下载</h1>
+                        <div class="cta-desc">
+                        </div>
+                    </div>
+                    <div class="col-md-3 cta-button">
+                        <a href="http://pan.baidu.com/s/1nu8bjux" class="btn btn-lg btn-block btn-info">我要下载</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bs-calltoaction bs-calltoaction-success">
+                <div class="row">
+                    <div class="col-md-9 cta-contents">
+                        <h1 class="cta-title">从coding.net下载</h1>
+                        <div class="cta-desc">
+                            <p>度盘速度不给力时可以试试</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 cta-button">
+                        <a href="https://coding.net/u/nj005py/p/fgocalc/git" class="btn btn-lg btn-block btn-success">我要下载</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bs-calltoaction bs-calltoaction-purple">
+                <div class="row">
+                    <div class="col-md-9 cta-contents">
+                        <h1 class="cta-title">web版</h1>
+                        <div class="cta-desc">
+                            <p>开发中， 想让iOS用户也有calc用，下方按钮尝试了解进度</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 cta-button">
+                        <a href="https://nj005py.github.io/FGOcalc_web/fgocalc" class="btn btn-lg btn-block btn-purple" style="color: #fff;">看看进度</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bs-calltoaction bs-calltoaction-warning">
+                <div class="row">
+                    <div class="col-md-9 cta-contents">
+                        <h1 class="cta-title">参与名单</h1>
+                        <div class="cta-desc" align="left">
+                            <p>
+                                <br>
+                                <font size="4">APP+Web制作：</font>空谕，百度月系吧刊组
+                                <br>
+                                <font size="4">程序-APP：</font>纯蓝魔法使(蓝魔)
+                                <br>
+                                <font size="4">程序-Web：</font>纯蓝魔法使(蓝魔)，strawberryG(黄昏现白骨)
+                                <br>
+                                <font size="4">程序-后台：</font>strawberryG(黄昏现白骨)
+                                <br>
+                                <font size="4">数据库录入：</font>纯蓝魔法使(蓝魔)，LevsLeos(妹红)，高川，shenzhixiyue(夕月)，major56y(56)，白我风闻(风子)，黑璃v镜(镜子)，saiya(夜魇悲歌)
+                                <br>
+                                <font size="4">解包+图片素材：</font>遗忘的银灵
+                                <br>
+                                <font size="4">宣传：</font>纯蓝魔法使(蓝魔)，你即美好(残留),黑璃v镜(镜子)
+                                <br>
+                                <font size="4">数据来源：</font>fgowiki,茹西教王的理想乡
+                                <br>
+                                <font size="4">感谢：</font>浮云般飘过(斬撃皇帝騎士団)、LevsLeos(妹红)，为打星计算器的开发提出了建设性建议。windy(森林雪拉比)曾经为app做过检测更新API。
+                            </p>
+                        </div>
+                    </div>
+                    <!--<div class="col-md-3 cta-button">
+                            <a href="https://s.bootsnipp.com/iframe/OeaWN#" class="btn btn-lg btn-block btn-warning">Go for It!</a>
+                        </div>-->
+                </div>
+            </div>
+
+            <!--<div class="bs-calltoaction bs-calltoaction-danger">
+                    <div class="row">
+                        <div class="col-md-9 cta-contents">
+                            <h1 class="cta-title">Its a Call To Action</h1>
+                            <div class="cta-desc">
+                                <p>Describe the action here.</p>
+                                <p>Describe the action here.</p>
+                                <p>Describe the action here.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 cta-button">
+                            <a href="https://s.bootsnipp.com/iframe/OeaWN#" class="btn btn-lg btn-block btn-danger">Go for It!</a>
+                        </div>
+                     </div>
+                </div>-->
+
+        </div>
+    </div>
+    <script type="text/javascript">
+
+    </script>
+
+
+    <div id="SLG_balloon_obj" alt="0" style="display: block;">
+        <div id="SLG_button" class="SLG_ImTranslatorLogo" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/imtranslator-s.png&quot;); display: none;"></div>
+        <div id="SLG_shadow_translation_result2" style="display: none;"></div>
+        <div id="SLG_shadow_translator" style="display: none;">
+            <div id="SLG_planshet">
+                <div id="SLG_arrow_up" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/up.png&quot;);"></div>
+                <div style="visibility:hidden;" id="SLG_Bproviders">
+                    <div class="SLG_BL_LABLE_ON" title="Google" id="SLG_P0">G</div>
+                    <div class="SLG_BL_LABLE_ON" title="Microsoft" id="SLG_P1">M</div>
+                    <div class="SLG_BL_LABLE_ON" title="Translator" id="SLG_P2">T</div>
+                </div>
+                <div id="SLG_alert_bbl" style="display: none;">
+                    <div id="SLHKclose" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/delete.png&quot;);"></div>
+                    <div id="SLG_alert_cont"></div>
+                </div>
+                <div id="SLG_TB">
+                    <table id="SLG_tables" cellspacing="1">
+                        <tr>
+                            <td class="SLG_td" width="10%" align="right">
+                                <input id="SLG_locer" type="checkbox" title="锁定语言">
+                            </td>
+                            <td class="SLG_td" width="20%" align="left">
+                                <select id="SLG_lng_from" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/select.png&quot;) 100% 0px no-repeat rgb(255, 255, 255);">
+                                    <option value="auto">检测语言</option>
+                                    <option value="eo">世界语</option>
+                                    <option value="zh-CN">中文简体</option>
+                                    <option value="zh-TW">中文繁体</option>
+                                    <option value="da">丹麦语</option>
+                                    <option value="uk">乌克兰语</option>
+                                    <option value="uz">乌兹别克语</option>
+                                    <option value="ur">乌尔都语</option>
+                                    <option value="hy">亚美尼亚语</option>
+                                    <option value="ig">伊博语</option>
+                                    <option value="ru">俄语</option>
+                                    <option value="bg">保加利亚语</option>
+                                    <option value="si">僧伽罗语</option>
+                                    <option value="hr">克罗地亚语</option>
+                                    <option value="is">冰岛语</option>
+                                    <option value="gl">加利西亚语</option>
+                                    <option value="ca">加泰罗尼亚语</option>
+                                    <option value="hu">匈牙利语</option>
+                                    <option value="zu">南非祖鲁语</option>
+                                    <option value="kn">卡纳达语</option>
+                                    <option value="hi">印地语</option>
+                                    <option value="su">印尼巽他语</option>
+                                    <option value="jw">印尼爪哇语</option>
+                                    <option value="id">印尼语</option>
+                                    <option value="gu">古吉拉特语</option>
+                                    <option value="kk">哈萨克语</option>
+                                    <option value="tr">土耳其语</option>
+                                    <option value="tg">塔吉克语</option>
+                                    <option value="sr">塞尔维亚语</option>
+                                    <option value="st">塞索托语</option>
+                                    <option value="cy">威尔士语</option>
+                                    <option value="bn">孟加拉语</option>
+                                    <option value="ceb">宿务语</option>
+                                    <option value="ne">尼泊尔语</option>
+                                    <option value="eu">巴斯克语</option>
+                                    <option value="af">布尔语(南非荷兰语)</option>
+                                    <option value="iw">希伯来语</option>
+                                    <option value="el">希腊语</option>
+                                    <option value="de">德语</option>
+                                    <option value="it">意大利语</option>
+                                    <option value="yi">意第绪语</option>
+                                    <option value="la">拉丁语</option>
+                                    <option value="lv">拉脱维亚语</option>
+                                    <option value="no">挪威语</option>
+                                    <option value="cs">捷克语</option>
+                                    <option value="sk">斯洛伐克语</option>
+                                    <option value="sl">斯洛文尼亚语</option>
+                                    <option value="sw">斯瓦希里语</option>
+                                    <option value="pa">旁遮普语</option>
+                                    <option value="ja">日语</option>
+                                    <option value="ka">格鲁吉亚语</option>
+                                    <option value="mi">毛利语</option>
+                                    <option value="fr">法语</option>
+                                    <option value="pl">波兰语</option>
+                                    <option value="bs">波斯尼亚语</option>
+                                    <option value="fa">波斯语</option>
+                                    <option value="te">泰卢固语</option>
+                                    <option value="ta">泰米尔语</option>
+                                    <option value="th">泰语</option>
+                                    <option value="ht">海地克里奥尔语</option>
+                                    <option value="ga">爱尔兰语</option>
+                                    <option value="et">爱沙尼亚语</option>
+                                    <option value="sv">瑞典语</option>
+                                    <option value="be">白俄罗斯语</option>
+                                    <option value="lt">立陶宛语</option>
+                                    <option value="so">索马里语</option>
+                                    <option value="yo">约鲁巴语</option>
+                                    <option value="my">缅甸语</option>
+                                    <option value="ro">罗马尼亚语</option>
+                                    <option value="lo">老挝语</option>
+                                    <option value="fi">芬兰语</option>
+                                    <option value="hmn">苗语</option>
+                                    <option value="en">英语</option>
+                                    <option value="nl">荷兰语</option>
+                                    <option value="tl">菲律宾语</option>
+                                    <option value="pt">葡萄牙语</option>
+                                    <option value="mn">蒙古语</option>
+                                    <option value="es">西班牙语</option>
+                                    <option value="ha">豪萨语</option>
+                                    <option value="vi">越南语</option>
+                                    <option value="az">阿塞拜疆语</option>
+                                    <option value="sq">阿尔巴尼亚语</option>
+                                    <option value="ar">阿拉伯语</option>
+                                    <option value="ko">韩语</option>
+                                    <option value="mk">马其顿语</option>
+                                    <option value="mg">马尔加什语</option>
+                                    <option value="mr">马拉地语</option>
+                                    <option value="ml">马拉雅拉姆语</option>
+                                    <option value="ms">马来语</option>
+                                    <option value="mt">马耳他语</option>
+                                    <option value="km">高棉语</option>
+                                    <option value="ny">齐切瓦语</option>
+                                </select>
+                            </td>
+                            <td class="SLG_td" width="3" align="center">
+                                <div id="SLG_switch_b" title="切换语言" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/switchb.png&quot;);"></div>
+                            </td>
+                            <td class="SLG_td" width="20%" align="left">
+                                <select id="SLG_lng_to" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/select.png&quot;) 100% 0px no-repeat rgb(255, 255, 255);">
+                                    <option value="eo">世界语</option>
+                                    <option value="zh-CN">中文简体</option>
+                                    <option value="zh-TW">中文繁体</option>
+                                    <option value="da">丹麦语</option>
+                                    <option value="uk">乌克兰语</option>
+                                    <option value="uz">乌兹别克语</option>
+                                    <option value="ur">乌尔都语</option>
+                                    <option value="hy">亚美尼亚语</option>
+                                    <option value="ig">伊博语</option>
+                                    <option value="ru">俄语</option>
+                                    <option value="bg">保加利亚语</option>
+                                    <option value="si">僧伽罗语</option>
+                                    <option value="hr">克罗地亚语</option>
+                                    <option value="is">冰岛语</option>
+                                    <option value="gl">加利西亚语</option>
+                                    <option value="ca">加泰罗尼亚语</option>
+                                    <option value="hu">匈牙利语</option>
+                                    <option value="zu">南非祖鲁语</option>
+                                    <option value="kn">卡纳达语</option>
+                                    <option value="hi">印地语</option>
+                                    <option value="su">印尼巽他语</option>
+                                    <option value="jw">印尼爪哇语</option>
+                                    <option value="id">印尼语</option>
+                                    <option value="gu">古吉拉特语</option>
+                                    <option value="kk">哈萨克语</option>
+                                    <option value="tr">土耳其语</option>
+                                    <option value="tg">塔吉克语</option>
+                                    <option value="sr">塞尔维亚语</option>
+                                    <option value="st">塞索托语</option>
+                                    <option value="cy">威尔士语</option>
+                                    <option value="bn">孟加拉语</option>
+                                    <option value="ceb">宿务语</option>
+                                    <option value="ne">尼泊尔语</option>
+                                    <option value="eu">巴斯克语</option>
+                                    <option value="af">布尔语(南非荷兰语)</option>
+                                    <option value="iw">希伯来语</option>
+                                    <option value="el">希腊语</option>
+                                    <option value="de">德语</option>
+                                    <option value="it">意大利语</option>
+                                    <option value="yi">意第绪语</option>
+                                    <option value="la">拉丁语</option>
+                                    <option value="lv">拉脱维亚语</option>
+                                    <option value="no">挪威语</option>
+                                    <option value="cs">捷克语</option>
+                                    <option value="sk">斯洛伐克语</option>
+                                    <option value="sl">斯洛文尼亚语</option>
+                                    <option value="sw">斯瓦希里语</option>
+                                    <option value="pa">旁遮普语</option>
+                                    <option value="ja">日语</option>
+                                    <option value="ka">格鲁吉亚语</option>
+                                    <option value="mi">毛利语</option>
+                                    <option value="fr">法语</option>
+                                    <option value="pl">波兰语</option>
+                                    <option value="bs">波斯尼亚语</option>
+                                    <option value="fa">波斯语</option>
+                                    <option value="te">泰卢固语</option>
+                                    <option value="ta">泰米尔语</option>
+                                    <option value="th">泰语</option>
+                                    <option value="ht">海地克里奥尔语</option>
+                                    <option value="ga">爱尔兰语</option>
+                                    <option value="et">爱沙尼亚语</option>
+                                    <option value="sv">瑞典语</option>
+                                    <option value="be">白俄罗斯语</option>
+                                    <option value="lt">立陶宛语</option>
+                                    <option value="so">索马里语</option>
+                                    <option value="yo">约鲁巴语</option>
+                                    <option value="my">缅甸语</option>
+                                    <option value="ro">罗马尼亚语</option>
+                                    <option value="lo">老挝语</option>
+                                    <option value="fi">芬兰语</option>
+                                    <option value="hmn">苗语</option>
+                                    <option value="en">英语</option>
+                                    <option value="nl">荷兰语</option>
+                                    <option value="tl">菲律宾语</option>
+                                    <option value="pt">葡萄牙语</option>
+                                    <option value="mn">蒙古语</option>
+                                    <option value="es">西班牙语</option>
+                                    <option value="ha">豪萨语</option>
+                                    <option value="vi">越南语</option>
+                                    <option value="az">阿塞拜疆语</option>
+                                    <option value="sq">阿尔巴尼亚语</option>
+                                    <option value="ar">阿拉伯语</option>
+                                    <option value="ko">韩语</option>
+                                    <option value="mk">马其顿语</option>
+                                    <option value="mg">马尔加什语</option>
+                                    <option value="mr">马拉地语</option>
+                                    <option value="ml">马拉雅拉姆语</option>
+                                    <option value="ms">马来语</option>
+                                    <option value="mt">马耳他语</option>
+                                    <option value="km">高棉语</option>
+                                    <option value="ny">齐切瓦语</option>
+                                </select>
+                            </td>
+                            <td class="SLG_td" width="5%" align="center"> </td>
+                            <td class="SLG_td" width="8%" align="center">
+                                <div id="SLG_TTS_voice" title="聆听翻译" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/ttsvoice.png&quot;);"></div>
+                            </td>
+                            <td class="SLG_td" width="8%" align="center">
+                                <div id="SLG_copy" title="复制译文" class="SLG_copy" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/copy.png&quot;);"></div>
+                            </td>
+                            <td class="SLG_td" width="8%" align="center">
+                                <div id="SLG_bbl_font_patch"></div>
+                                <div id="SLG_bbl_font" title="字体大小" class="SLG_bbl_font" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/font.png&quot;);"></div>
+                            </td>
+                            <td class="SLG_td" width="8%" align="center">
+                                <div id="SLG_bbl_help" title="帮助" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/bhelp.png&quot;);"></div>
+                            </td>
+                            <td class="SLG_td" width="15%" align="right">
+                                <div id="SLG_pin" class="SLG_pin_off" title="固定弹出窗口" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/pin-on.png&quot;);"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="SLG_shadow_translation_result" style="visibility: visible;"></div>
+            <div id="SLG_loading" class="SLG_loading" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/loading.gif&quot;);"></div>
+            <div id="SLG_player2"></div>
+            <div id="SLG_alert100">文本转语音功能仅限200个字符</div>
+            <div id="SLG_Balloon_options" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/bg3.png&quot;) rgb(255, 255, 255);">
+                <div id="SLG_arrow_down" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/down.png&quot;);"></div>
+                <table id="SLG_tbl_opt" width="100%">
+                    <tr>
+                        <td width="5%" align="center">
+                            <input id="SLG_BBL_locer" type="checkbox" checked="1" title="显示翻译器的按钮 3 秒">
+                        </td>
+                        <td width="5%" align="left">
+                            <div id="SLG_BBL_IMG" title="显示翻译器的按钮 3 秒" style="background: url(&quot;chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/img/util/bbl-logo.png&quot;);"></div>
+                        </td>
+                        <td width="70%" align="center">
+                            <a href="chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/html/options/options.html?bbl"
+                                target="_blank" class="SLG_options" title="显示选项">选项</a> :
+                            <a href="chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/html/options/options.html?hist"
+                                target="_blank" class="SLG_options" title="翻译历史记录">历史</a> :
+                            <a href="chrome-extension://mchdgimobfnilobnllpdnompfjkkfdmi/content/html/options/options.html?feed"
+                                target="_blank" class="SLG_options" title="反馈">反馈</a> :
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=GD9D8CPW8HFA2"
+                                target="_blank" class="SLG_options" title="作出一点点贡献">Donate</a>
+                        </td>
+                        <td width="15%" align="right">
+                            <span id="SLG_Balloon_Close" title="关闭">关闭</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
