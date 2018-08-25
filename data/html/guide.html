@@ -25,48 +25,47 @@
             margin-bottom: 10px;
             border-radius: 5px;
         }
-
+        
         .bs-calltoaction>.row {
             display: table;
             width: calc(100% + 30px);
         }
-
+        
         .bs-calltoaction>.row>[class^="col-"],
         .bs-calltoaction>.row>[class*=" col-"] {
             float: none;
             display: table-cell;
             vertical-align: middle;
         }
-
+        
         .cta-contents {
             padding-top: 10px;
             padding-bottom: 10px;
         }
-
+        
         .cta-title {
             margin: 0 auto 15px;
             padding: 0;
         }
-
+        
         .cta-desc {
             padding: 0;
         }
-
+        
         .cta-desc p:last-child {
             margin-bottom: 0;
         }
-
+        
         .cta-button {
             padding-top: 10px;
             padding-bottom: 10px;
         }
-
+        
         @media (max-width: 991px) {
             .bs-calltoaction>.row {
                 display: block;
                 width: auto;
             }
-
             .bs-calltoaction>.row>[class^="col-"],
             .bs-calltoaction>.row>[class*=" col-"] {
                 float: none;
@@ -74,56 +73,53 @@
                 vertical-align: middle;
                 position: relative;
             }
-
             .cta-contents {
                 text-align: center;
             }
         }
-
-
-
+        
         .bs-calltoaction.bs-calltoaction-default {
             color: #333;
             background-color: #fff;
             border-color: #ccc;
         }
-
+        
         .bs-calltoaction.bs-calltoaction-primary {
             color: #fff;
             background-color: #337ab7;
             border-color: #2e6da4;
         }
-
+        
         .bs-calltoaction.bs-calltoaction-info {
             color: #fff;
             background-color: #5bc0de;
             border-color: #46b8da;
         }
-
+        
         .bs-calltoaction.bs-calltoaction-success {
             color: #fff;
             background-color: #5cb85c;
             border-color: #4cae4c;
         }
-
+        
         .bs-calltoaction.bs-calltoaction-warning {
             color: #fff;
             background-color: #f0ad4e;
             border-color: #eea236;
         }
-
+        
         .bs-calltoaction.bs-calltoaction-danger {
             color: #fff;
             background-color: #d9534f;
             border-color: #d43f3a;
         }
-
+        
         .bs-calltoaction.bs-calltoaction-purple {
             color: #fff;
             background-color: #2C2255;
             border-color: #AF3874;
         }
-
+        
         .bs-calltoaction.bs-calltoaction-primary .cta-button .btn,
         .bs-calltoaction.bs-calltoaction-info .cta-button .btn,
         .bs-calltoaction.bs-calltoaction-success .cta-button .btn,
@@ -134,13 +130,14 @@
         }
     </style>
     <script type="text/javascript">
-        window.alert = function () { };
+        window.alert = function() {};
         var defaultCSS = document.getElementById('bootstrap-css');
+
         function changeCSS(css) {
             if (css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="' + css + '" type="text/css" />');
             else $('head > link').filter(':first').replaceWith(defaultCSS);
         }
-        $(document).ready(function () {
+        $(document).ready(function() {
             var iframe_height = parseInt($('html').height());
             //        window.parent.postMessage( iframe_height, 'fgocalc');
         });
@@ -223,27 +220,88 @@
                 <div class="row">
                     <div class="col-md-9 cta-contents">
                         <h1 class="cta-title">参与名单</h1>
-                        <div class="cta-desc" align="left">
-                            <p>
-                                <br>
-                                <font size="4">APP+Web制作：</font>空谕，百度月系吧刊组
-                                <br>
-                                <font size="4">程序-APP：</font>纯蓝魔法使(蓝魔)
-                                <br>
-                                <font size="4">程序-Web：</font>纯蓝魔法使(蓝魔)，strawberryG(黄昏现白骨)
-                                <br>
-                                <font size="4">程序-后台：</font>strawberryG(黄昏现白骨)
-                                <br>
-                                <font size="4">数据库录入：</font>纯蓝魔法使(蓝魔)，LevsLeos(妹红)，高川，shenzhixiyue(夕月)，major56y(56)，白我风闻(风子)，黑璃v镜(镜子)，saiya(夜魇悲歌),晓澄若笙凉(夏兮)
-                                <br>
-                                <font size="4">解包+图片素材：</font>遗忘的银灵
-                                <br>
-                                <font size="4">宣传：</font>纯蓝魔法使(蓝魔)，你即美好(残留),黑璃v镜(镜子)
-                                <br>
-                                <font size="4">数据来源：</font>fgowiki,茹西教王的理想乡
-                                <br>
-                                <font size="4">感谢：</font>浮云般飘过(斬撃皇帝騎士団)、LevsLeos(妹红)，为打星计算器的开发提出了建设性建议。windy(森林雪拉比)曾经为app做过检测更新API。
-                            </p>
+                        <div class="cta-desc table-responsive" align="left">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>分工</th>
+                                        <th>人员</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            APP+Web制作
+                                        </td>
+                                        <td>空谕，百度月系吧刊组</td>
+                                    </tr>
+                                    <tr>
+                                        <td>程序-APP</td>
+                                        <td>纯蓝魔法使(蓝魔)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>程序-Web</td>
+                                        <td>
+                                            <dl>
+                                                <dd>纯蓝魔法使(蓝魔)</dd>
+                                                <dd>strawberryG(黄昏现白骨)</dd>
+                                            </dl>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>程序-后台</td>
+                                        <td>strawberryG(黄昏现白骨)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>数据库录入</td>
+                                        <td>
+                                            <dl>
+                                                <dd>纯蓝魔法使(蓝魔)</dd>
+                                                <dd>LevsLeos(妹红)</dd>
+                                                <dd>高川</dd>
+                                                <dd>shenzhixiyue(夕月)</dd>
+                                                <dd>major56y(56)</dd>
+                                                <dd>白我风闻(风子)</dd>
+                                                <dd>黑璃v镜(镜子)</dd>
+                                                <dd>saiya(夜魇悲歌)</dd>
+                                                <dd>红尘眷恋N(红秃子)</dd>
+                                                <dd>晓澄若笙凉(夏兮)</dd>
+                                            </dl>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>图标+启动图绘画</td>
+                                        <td>单调的冰(冰块)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>解包+图片素材</td>
+                                        <td>遗忘的银灵</td>
+                                    </tr>
+                                    <tr>
+                                        <td>宣传</td>
+                                        <td>
+                                            <dl>
+                                                <dd>纯蓝魔法使(蓝魔)</dd>
+                                                <dd>你即美好(残留)</dd>
+                                                <dd>黑璃v镜(镜子)</dd>
+                                            </dl>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>数据来源</td>
+                                        <td>fgowiki,茹西教王的理想乡</td>
+                                    </tr>
+                                    <tr>
+                                        <td>感谢</td>
+                                        <td>
+                                            <dl>
+                                                <dd>浮云般飘过(斬撃皇帝騎士団)、LevsLeos(妹红)，为打星计算器的开发提出了建设性建议。</dd>
+                                                <dd>windy(森林雪拉比)曾经为app做过检测更新API。</dd>
+                                            </dl>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <!--<div class="col-md-3 cta-button">
