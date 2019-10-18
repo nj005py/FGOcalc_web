@@ -4,6 +4,7 @@ var titles = [
     "title":"第0期 月下绮想",
     "cover":"../magazine/000/01.jpg"
   }
+  
 ];
 
 var vols = [
