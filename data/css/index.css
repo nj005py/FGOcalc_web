@@ -1,0 +1,133 @@
+#hdr_top {
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    background: #FAFAFA;
+}
+
+#content {
+    position: relative;
+}
+
+.no {
+    -webkit-text-fill-color: #D58512;
+    -webkit-text-stroke: 1px black;
+    font-size: 0.85em;
+}
+
+.num {
+    -webkit-text-fill-color: #FFFFFF;
+    -webkit-text-stroke: 0.5px black;
+    font-size: 0.8em;
+}
+
+.cardview {
+    position: relative;
+    width: 80px;
+    height: 160px;
+}
+
+.main {
+    display: inline-block;
+    list-style-type: none;
+    margin-bottom: 50px;
+    width: 100px;
+    height: 100px;
+}
+
+#servant-list {
+    position: relative;
+    text-align: center;
+}
+
+#div_search_screen {
+    position: relative;
+    text-align: center;
+    top: 1em;
+}
+
+#sidebarCollapse {
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    left: 0;
+}
+
+.servant_ul {
+    list-style: none;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+.servant_li {
+    width: 80px;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    border: 1px solid #a1a1a1;
+    border-radius: 10px;
+}
+
+.dowebok {
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.dowebok li {
+    display: inline-block;
+}
+
+.div_searchbar {
+    text-align: center;
+}
+
+#div_keyword {
+    box-sizing: border-box;
+    /* width: 90%; */
+    height: 40px;
+    /* padding-left: 10px; */
+    border-left: 4px double #DEDEDE;
+    border-bottom: 4px double #DEDEDE;
+    border-top: 4px double #DEDEDE;
+    border-right: 1px #FFFFFF;
+    /* margin: 0 0 0 5px!important; */
+    border-radius: 10px 0px 0px 10px;
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+#div_search_button {
+    width: 40px;
+    height: 40px;
+    background: #2A8AE0;
+    color: #FFFFFF;
+    border-radius: 0px 10px 10px 0px;
+}
+
+#div_screen {
+    width: 100%;
+    text-align: center;
+}
+
+#div_screen_option {
+    width: 100%;
+    text-align: center;
+}
+
+#div_screen_button {
+    text-align: center;
+    position: relative;
+}
+
+#img_search {
+    width: 1em;
+    height: 1em;
+    position: relative;
+    top: 20%;
+    bottom: 20%;
+    left: 25%;
+    right: 10%;
+}

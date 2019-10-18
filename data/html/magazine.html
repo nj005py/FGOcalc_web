@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>dd</title>
+    <script
+      src="../js/vue.min.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <script
+      src="../magazine/data.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+  </head>
+  <body>
+    <div id="app">
+      <h2>{{ title }}</h2>
+      <ul class="demo">
+        <li v-for="item in items">
+          <img :src="item.img" />
+        </li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      var vue = new Vue({
+        el: "#app",
+        data: {
+          title: "第0期吧刊",
+          items: vol0
+        }
+      });
+    </script>
+
+    <style>
+      h2 {
+        text-align: center;
+      }
+      ul li {
+        list-style-type: none;
+        text-align: center;
+      }
+    </style>
+  </body>
+</html>
