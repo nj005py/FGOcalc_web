@@ -19,10 +19,14 @@
   </head>
   <body>
     <div id="app">
-      <h2>第{{ vol }}期吧刊</h2>
+      <h2>{{ title }}</h2>
       <ul class="demo">
         <li v-for="item in items">
-          <img :src="item.img" />
+          <div id="cover" @click="read(item.vol)">
+            <img :src="item.cover" />
+            <br />
+            {{ item.title }}
+          </div>
         </li>
       </ul>
     </div>
@@ -31,26 +35,14 @@
       var vue = new Vue({
         el: "#app",
         data: {
-          //   vol: "0",
-          //   items: vol0
+          title: "吧刊列表",
+          items: titles
         },
-        computed: {
-          // 计算属性的 getter
-          vol: function() {
-            var url = location.href;
-            var tmp1 = url.split("?")[1];
-            var tmp2 = tmp1.split("&")[0];
-            var tmp3 = tmp2.split("=")[1];
-            var param1 = tmp3;
-            return param1;
-          },
-          items: function() {
-            var url = location.href;
-            var tmp1 = url.split("?")[1];
-            var tmp2 = tmp1.split("&")[0];
-            var tmp3 = tmp2.split("=")[1];
-            var index = tmp3;
-            return vols[index];
+        methods: {
+          read(v) {
+            var parm1 = document.getElementById("cover").value;
+            var myurl = "magazine.html" + "?" + "v=" + v;
+            window.location.assign(encodeURI(myurl));
           }
         }
       });
@@ -60,15 +52,9 @@
       h2 {
         text-align: center;
       }
-      ul li {
-        list-style-type: none;
-        text-align: center;
-      }
       img {
-        display: block;
-        margin: 0 auto;
-        max-width: 100%;
-        height: auto;
+        width: 120px;
+        height: 120px;
       }
     </style>
   </body>

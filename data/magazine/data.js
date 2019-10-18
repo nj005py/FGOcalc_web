@@ -1,5 +1,13 @@
-var vol0 = [
-  { "img": "../magazine/000/01.jpg" },
+var titles = [
+  {
+    "vol":0,
+    "title":"第0期 月下绮想",
+    "cover":"../magazine/000/01.jpg"
+  }
+];
+
+var vols = [
+  [{ "img": "../magazine/000/01.jpg" },
   { "img": "../magazine/000/02.jpg" },
   { "img": "../magazine/000/03.jpg" },
   { "img": "../magazine/000/04.jpg" },
@@ -28,5 +36,5 @@ var vol0 = [
   { "img": "../magazine/000/27.jpg" },
   { "img": "../magazine/000/28.jpg" },
   { "img": "../magazine/000/29.jpg" },
-  { "img": "../magazine/000/30.jpg" }
+  { "img": "../magazine/000/30.jpg" }]
 ];
