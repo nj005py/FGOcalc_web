@@ -1,5 +1,5 @@
 export default `
-# FGO国服CCC联动复刻攻略
+# FGO国服《旧时蜘蛛·余残怀古·共纺丝》白情攻略搜集
 
 [toc]
 
